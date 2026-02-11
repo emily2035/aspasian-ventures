@@ -36,12 +36,12 @@
       min-height: 80vh;
     }
 
-    /* Large title in upper-right */
+    /* Larger title, moved higher */
     .heading {
       position: absolute;
-      top: 20px;
+      top: 5px;          /* moved up */
       right: 20px;
-      font-size: 3rem;
+      font-size: 3.2rem; /* slightly larger */
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--heading-dark);
@@ -59,18 +59,19 @@
       opacity: 0.45;
     }
 
-    /* Content block */
+    /* Centered content block */
     .content {
       position: relative;
       z-index: 2;
       max-width: 650px;
-      margin-top: 140px;
-      padding-left: 20px;
+      margin: 0 auto;
+      text-align: center;   /* centered */
+      margin-top: 120px;
     }
 
     .term {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 2.6rem;
+      font-size: 2.2rem;   /* slightly smaller */
       font-weight: 600;
       margin-bottom: 0.4rem;
       color: var(--heading-dark);
@@ -78,15 +79,17 @@
 
     .pronunciation {
       font-style: italic;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       margin-bottom: 1.4rem;
     }
 
     .definition {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       line-height: 1.7;
       margin-bottom: 3rem;
       max-width: 48rem;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* Bottom contact line */
@@ -116,7 +119,7 @@
         font-size: 2rem;
       }
       .term {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
       .definition {
         font-size: 1rem;
@@ -133,35 +136,11 @@
 
     <!-- Globe with lines only -->
     <svg class="globe" viewBox="0 0 500 500" aria-hidden="true">
-      <!-- Outer circle -->
       <circle cx="250" cy="250" r="230" fill="none" stroke="var(--globe-line)" stroke-width="3" />
-
-      <!-- Latitudes -->
       <ellipse cx="250" cy="250" rx="230" ry="80" fill="none" stroke="var(--globe-line)" stroke-width="1.5" />
       <ellipse cx="250" cy="250" rx="230" ry="150" fill="none" stroke="var(--globe-line)" stroke-width="1.2" />
-
-      <!-- Longitudes -->
       <ellipse cx="250" cy="250" rx="80" ry="230" fill="none" stroke="var(--globe-line)" stroke-width="1.5" />
       <ellipse cx="250" cy="250" rx="150" ry="230" fill="none" stroke="var(--globe-line)" stroke-width="1.2" />
     </svg>
 
-    <!-- Main content -->
-    <div class="content">
-      <div class="term">Aspasian</div>
-      <div class="pronunciation">adjective | as-PAY-zhən or as-PAY-zee-ən</div>
-
-      <div class="definition">
-        Definition: Of or relating to Aspasia of Miletus; characterized by intellectual brilliance, rhetorical skill, and the
-        ability to influence political and philosophical discourse despite societal constraints; embodying qualities of
-        eloquence, strategic thinking, and the challenging of conventional gender roles in intellectual life.
-      </div>
-    </div>
-
-    <!-- Bottom contact line -->
-    <div class="footer-contact">
-      contact: <a href="mailto:info@aspasian.ventures">info@aspasian.ventures</a>
-    </div>
-
-  </div>
-</body>
-</html>
+    <!-- Centered main content -->
