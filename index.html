@@ -1,120 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aspasian Ventures</title>
   <style>
-    /* Color Palette */
     :root {
-      --deep-navy: #0f1a2b;
-      --slate-gray: #4a5568;
-      --soft-gray: #e6e9ed;
-      --cool-blue: #3a6ea5;
-      --green-underline: #6fae8f;
+      --bg-blue-gray: #a9b9c9;
+      --white: #ffffff;
+      --text-dark: #0f1a2b;
     }
 
-    /* Typography */
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: "Inter", Arial, Helvetica, sans-serif;
-      background: var(--soft-gray);
-      color: var(--deep-navy);
-      line-height: 1.7;
+      padding: 0;
     }
 
-    /* Logo Lockup */
-    header {
-      background: var(--deep-navy);
-      color: white;
-      padding: 70px 20px 50px;
-      text-align: center;
+    body {
+      min-height: 100vh;
+      background: var(--bg-blue-gray);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark);
     }
 
-    .logo {
-      font-size: 2.4rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-bottom: 8px;
+    .wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
     }
 
-    .logo-subtle-line {
-      width: 80px;
-      height: 2px;
-      background: var(--green-underline);
-      margin: 12px auto 0;
-      border-radius: 2px;
+    .globe {
+      position: absolute;
+      inset: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 600px;
+      opacity: 0.35;
     }
 
     .content {
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 0 20px;
-      font-size: 1.2rem;
-      color: var(--slate-gray);
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      text-align: left;
+      color: var(--white);
+    }
+
+    .brand {
+      font-family: "Copperplate", "Copperplate Gothic Light", "Times New Roman", serif;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
     }
 
     .term {
-      font-family: "Georgia", serif;
-      font-size: 2rem;
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 2.4rem;
       font-weight: 600;
-      color: var(--cool-blue);
-      margin-bottom: 6px;
+      margin-bottom: 0.4rem;
     }
 
     .pronunciation {
       font-style: italic;
-      color: var(--slate-gray);
-      margin-bottom: 24px;
       font-size: 1.05rem;
+      margin-bottom: 1.5rem;
     }
 
-    p {
-      border-left: 4px solid var(--green-underline);
-      padding-left: 18px;
-      font-size: 1.15rem;
+    .definition {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 46rem;
     }
 
-    footer {
-      text-align: center;
-      padding: 50px 20px;
-      font-size: 1rem;
-      color: var(--slate-gray);
+    .contact {
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
-    a {
-      color: var(--cool-blue);
+    .contact a {
+      color: var(--white);
       text-decoration: none;
-      font-weight: 600;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+      padding-bottom: 2px;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .contact a:hover {
+      border-bottom-color: var(--white);
+    }
+
+    @media (max-width: 768px) {
+      .wrapper {
+        padding: 16px;
+      }
+      .term {
+        font-size: 2rem;
+      }
+      .definition {
+        font-size: 0.98rem;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="wrapper">
+    <!-- White globe outline with Americas facing front (stylized SVG) -->
+    <svg class="globe" viewBox="0 0 400 400" aria-hidden="true">
+      <circle cx="200" cy="200" r="180" fill="none" stroke="#ffffff" stroke-width="3" />
+      <!-- Longitudes -->
+      <ellipse cx="200" cy="200" rx="60" ry="180" fill="none" stroke="#ffffff" stroke-width="1.5" />
+      <ellipse cx="200" cy="200" rx="120" ry="180" fill="none" stroke="#ffffff" stroke-width="1" />
+      <!-- Latitudes -->
+      <ellipse cx="200" cy="200" rx="180" ry="60" fill="none" stroke="#ffffff" stroke-width="1.5" />
+      <ellipse cx="200" cy="200" rx="180" ry="120" fill="none" stroke="#ffffff" stroke-width="1" />
+      <!-- Stylized Americas landmass -->
+      <path
+        d="M190 90
+           C160 110, 150 140, 160 165
+           C170 190, 155 210, 150 230
+           C145 250, 155 270, 175 280
+           C195 290, 210 305, 215 320
+           C220 335, 235 340, 245 330
+           C255 320, 255 305, 250 295
+           C245 285, 240 270, 245 255
+           C250 240, 260 225, 265 210
+           C270 195, 270 180, 265 165
+           C260 150, 245 135, 230 120
+           C215 105, 205 95, 190 90 Z"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="2"
+      />
+    </svg>
 
-<header>
-  <div class="logo">Aspasian Ventures</div>
-  <div class="logo-subtle-line"></div>
-</header>
+    <div class="content">
+      <div class="brand">ASPASIAN VENTURES</div>
 
-<div class="content">
-  <div class="term">Aspasian</div>
-  <div class="pronunciation">adjective | as-PAY-zhən or as-PAY-zee-ən</div>
+      <div class="term">Aspasian</div>
+      <div class="pronunciation">adjective | as-PAY-zhən or as-PAY-zee-ən</div>
 
-  <p>
-    Definition: Of or relating to Aspasia of Miletus; characterized by intellectual brilliance,
-    rhetorical skill, and the ability to influence political and philosophical discourse despite
-    societal constraints; embodying qualities of eloquence, strategic thinking, and the challenging
-    of conventional gender roles in intellectual life.
-  </p>
-</div>
+      <div class="definition">
+        Definition: Of or relating to Aspasia of Miletus; characterized by intellectual brilliance, rhetorical skill, and the
+        ability to influence political and philosophical discourse despite societal constraints; embodying qualities of
+        eloquence, strategic thinking, and the challenging of conventional gender roles in intellectual life.
+      </div>
 
-<footer>
-  Contact: <a href="mailto:info@aspasian.ventures">info@aspasian.ventures</a>
-</footer>
-
+      <div class="contact">
+        Contact:
+        <a href="mailto:info@aspasian.ventures">info@aspasian.ventures</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
