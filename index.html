@@ -8,8 +8,8 @@
     :root {
       --bg-blue-gray: #a9b9c9;
       --globe-line: rgba(255, 255, 255, 0.70);
-      --text-dark: rgba(255, 255, 255, 0.92);
-      --heading-dark: rgba(255, 255, 255, 0.97);
+      --text-main: rgba(255, 255, 255, 0.94);
+      --text-soft: rgba(255, 255, 255, 0.90);
     }
 
     * {
@@ -25,8 +25,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px;
-      color: var(--text-dark);
+      padding: 40px 20px;
+      color: var(--text-main);
     }
 
     .layout {
@@ -34,47 +34,50 @@
       width: 100%;
       max-width: 1100px;
       min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* Larger title, moved higher */
-    .heading {
-      position: absolute;
-      top: 5px;          /* moved up */
-      right: 20px;
-      font-size: 3.2rem; /* slightly larger */
-      letter-spacing: 0.14em;
+    /* Centered title above globe */
+    .title {
       text-transform: uppercase;
-      color: var(--heading-dark);
+      letter-spacing: 0.18em;
+      font-size: 2.4rem;
       font-weight: 600;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--text-main);
     }
 
     /* Globe with lines only */
-    .globe {
-      position: absolute;
-      top: 50%;
-      left: 50%;
+    .globe-wrapper {
+      position: relative;
       width: 70%;
       max-width: 650px;
-      transform: translate(-50%, -50%);
-      opacity: 0.45;
+      margin-bottom: 40px;
     }
 
-    /* Centered content block */
-    .content {
-      position: relative;
-      z-index: 2;
-      max-width: 650px;
-      margin: 0 auto;
-      text-align: center;   /* centered */
-      margin-top: 120px;
+    .globe {
+      width: 100%;
+      opacity: 0.45;
+      display: block;
+    }
+
+    /* Text block centered over page (not inside globe) */
+    .text-block {
+      max-width: 720px;
+      text-align: center;
+      color: var(--text-soft);
     }
 
     .term {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 2.2rem;   /* slightly smaller */
+      font-size: 2.1rem;
       font-weight: 600;
       margin-bottom: 0.4rem;
-      color: var(--heading-dark);
+      color: var(--text-main);
     }
 
     .pronunciation {
@@ -87,42 +90,39 @@
       font-size: 1.05rem;
       line-height: 1.7;
       margin-bottom: 3rem;
-      max-width: 48rem;
-      margin-left: auto;
-      margin-right: auto;
     }
 
-    /* Bottom contact line */
-    .footer-contact {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
+    .contact {
       font-size: 1rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--heading-dark);
+      color: var(--text-main);
     }
 
-    .footer-contact a {
-      color: var(--heading-dark);
+    .contact a {
+      color: var(--text-main);
       text-decoration: none;
       border-bottom: 1px solid rgba(255, 255, 255, 0.6);
       padding-bottom: 2px;
     }
 
-    .footer-contact a:hover {
-      border-bottom-color: var(--heading-dark);
+    .contact a:hover {
+      border-bottom-color: var(--text-main);
     }
 
     @media (max-width: 768px) {
-      .heading {
-        font-size: 2rem;
+      .title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
       }
       .term {
         font-size: 1.8rem;
       }
       .definition {
         font-size: 1rem;
+      }
+      .globe-wrapper {
+        width: 85%;
       }
     }
   </style>
@@ -131,16 +131,42 @@
 <body>
   <div class="layout">
 
-    <!-- Upper-right heading -->
-    <div class="heading">ASPASIAN VENTURES</div>
+    <!-- Centered title -->
+    <div class="title">ASPASIAN VENTURES</div>
 
     <!-- Globe with lines only -->
-    <svg class="globe" viewBox="0 0 500 500" aria-hidden="true">
-      <circle cx="250" cy="250" r="230" fill="none" stroke="var(--globe-line)" stroke-width="3" />
-      <ellipse cx="250" cy="250" rx="230" ry="80" fill="none" stroke="var(--globe-line)" stroke-width="1.5" />
-      <ellipse cx="250" cy="250" rx="230" ry="150" fill="none" stroke="var(--globe-line)" stroke-width="1.2" />
-      <ellipse cx="250" cy="250" rx="80" ry="230" fill="none" stroke="var(--globe-line)" stroke-width="1.5" />
-      <ellipse cx="250" cy="250" rx="150" ry="230" fill="none" stroke="var(--globe-line)" stroke-width="1.2" />
-    </svg>
+    <div class="globe-wrapper">
+      <svg class="globe" viewBox="0 0 500 500" aria-hidden="true">
+        <!-- Outer circle -->
+        <circle cx="250" cy="250" r="230" fill="none" stroke="var(--globe-line)" stroke-width="3" />
 
-    <!-- Centered main content -->
+        <!-- Latitudes -->
+        <ellipse cx="250" cy="250" rx="230" ry="80" fill="none" stroke="var(--globe-line)" stroke-width="1.5" />
+        <ellipse cx="250" cy="250" rx="230" ry="150" fill="none" stroke="var(--globe-line)" stroke-width="1.2" />
+
+        <!-- Longitudes -->
+        <ellipse cx="250" cy="250" rx="80" ry="230" fill="none" stroke="var(--globe-line)" stroke-width="1.5" />
+        <ellipse cx="250" cy="250" rx="150" ry="230" fill="none" stroke="var(--globe-line)" stroke-width="1.2" />
+      </svg>
+    </div>
+
+    <!-- Text block -->
+    <div class="text-block">
+      <div class="term">Aspasian</div>
+      <div class="pronunciation">adjective | as-PAY-zee-ən</div>
+
+      <div class="definition">
+        Definition: Characterized by intellectual brilliance, rhetorical skill, and the ability to influence political and
+        philosophical discourse despite societal constraints; embodying qualities of eloquence, strategic thinking, and the
+        challenging of conventional gender roles in intellectual life; of or relating to Aspasia of Miletus.
+      </div>
+
+      <div class="contact">
+        Contact:
+        <a href="mailto:info@aspasian.ventures">info@aspasian.ventures</a>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
