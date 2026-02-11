@@ -7,9 +7,9 @@
   <style>
     :root {
       --bg-blue-gray: #a9b9c9;
-      --globe-line: rgba(255, 255, 255, 0.75);
+      --globe-line: rgba(255, 255, 255, 0.70);
       --text-dark: rgba(255, 255, 255, 0.92);
-      --heading-dark: rgba(255, 255, 255, 0.95);
+      --heading-dark: rgba(255, 255, 255, 0.97);
     }
 
     * {
@@ -36,19 +36,19 @@
       min-height: 80vh;
     }
 
-    /* Upper-right heading */
+    /* Large title in upper-right */
     .heading {
       position: absolute;
       top: 20px;
       right: 20px;
-      font-size: 1.6rem;
-      letter-spacing: 0.12em;
+      font-size: 3rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--heading-dark);
-      font-weight: 500;
+      font-weight: 600;
     }
 
-    /* Detailed globe */
+    /* Globe with lines only */
     .globe {
       position: absolute;
       top: 50%;
@@ -64,7 +64,7 @@
       position: relative;
       z-index: 2;
       max-width: 650px;
-      margin-top: 120px;
+      margin-top: 140px;
       padding-left: 20px;
     }
 
@@ -85,30 +85,35 @@
     .definition {
       font-size: 1.1rem;
       line-height: 1.7;
-      margin-bottom: 2.2rem;
+      margin-bottom: 3rem;
       max-width: 48rem;
     }
 
-    .contact {
+    /* Bottom contact line */
+    .footer-contact {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
       font-size: 1rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      color: var(--heading-dark);
     }
 
-    .contact a {
+    .footer-contact a {
       color: var(--heading-dark);
       text-decoration: none;
       border-bottom: 1px solid rgba(255, 255, 255, 0.6);
       padding-bottom: 2px;
     }
 
-    .contact a:hover {
+    .footer-contact a:hover {
       border-bottom-color: var(--heading-dark);
     }
 
     @media (max-width: 768px) {
       .heading {
-        font-size: 1.2rem;
+        font-size: 2rem;
       }
       .term {
         font-size: 2rem;
@@ -126,7 +131,7 @@
     <!-- Upper-right heading -->
     <div class="heading">ASPASIAN VENTURES</div>
 
-    <!-- Detailed globe SVG -->
+    <!-- Globe with lines only -->
     <svg class="globe" viewBox="0 0 500 500" aria-hidden="true">
       <!-- Outer circle -->
       <circle cx="250" cy="250" r="230" fill="none" stroke="var(--globe-line)" stroke-width="3" />
@@ -138,25 +143,6 @@
       <!-- Longitudes -->
       <ellipse cx="250" cy="250" rx="80" ry="230" fill="none" stroke="var(--globe-line)" stroke-width="1.5" />
       <ellipse cx="250" cy="250" rx="150" ry="230" fill="none" stroke="var(--globe-line)" stroke-width="1.2" />
-
-      <!-- Detailed Americas outline -->
-      <path
-        d="M260 110
-           C220 130, 200 160, 210 190
-           C220 220, 200 240, 190 260
-           C180 280, 190 300, 215 315
-           C240 330, 260 350, 270 370
-           C280 390, 300 395, 315 380
-           C330 365, 330 345, 320 330
-           C310 315, 300 295, 305 275
-           C310 255, 325 235, 335 215
-           C345 195, 345 175, 335 155
-           C325 135, 305 120, 285 110
-           C275 105, 270 105, 260 110 Z"
-        fill="none"
-        stroke="var(--globe-line)"
-        stroke-width="2"
-      />
     </svg>
 
     <!-- Main content -->
@@ -169,6 +155,13 @@
         ability to influence political and philosophical discourse despite societal constraints; embodying qualities of
         eloquence, strategic thinking, and the challenging of conventional gender roles in intellectual life.
       </div>
+    </div>
 
-      <div class="contact">
-        Contact
+    <!-- Bottom contact line -->
+    <div class="footer-contact">
+      contact: <a href="mailto:info@aspasian.ventures">info@aspasian.ventures</a>
+    </div>
+
+  </div>
+</body>
+</html>
