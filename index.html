@@ -37,7 +37,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
     }
 
     /* Centered title above globe */
@@ -51,7 +50,7 @@
       color: var(--text-main);
     }
 
-    /* Globe with lines only */
+    /* Globe container */
     .globe-wrapper {
       position: relative;
       width: 70%;
@@ -65,16 +64,21 @@
       display: block;
     }
 
-    /* Text block centered over page (not inside globe) */
+    /* LEFT-JUSTIFIED text placed over the globe */
     .text-block {
-      max-width: 720px;
-      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      width: 80%;
+      max-width: 650px;
+      text-align: left;
       color: var(--text-soft);
     }
 
     .term {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 2.1rem;
+      font-size: 2rem;
       font-weight: 600;
       margin-bottom: 0.4rem;
       color: var(--text-main);
@@ -82,21 +86,25 @@
 
     .pronunciation {
       font-style: italic;
-      font-size: 1.05rem;
-      margin-bottom: 1.4rem;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
     }
 
     .definition {
-      font-size: 1.05rem;
+      font-size: 1rem;
       line-height: 1.7;
       margin-bottom: 3rem;
+      max-width: 48rem;
     }
 
+    /* Bottom contact line */
     .contact {
+      margin-top: 20px;
       font-size: 1rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--text-main);
+      text-align: center;
     }
 
     .contact a {
@@ -113,13 +121,12 @@
     @media (max-width: 768px) {
       .title {
         font-size: 1.8rem;
-        margin-bottom: 30px;
       }
       .term {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
       }
       .definition {
-        font-size: 1rem;
+        font-size: 0.95rem;
       }
       .globe-wrapper {
         width: 85%;
@@ -137,34 +144,30 @@
     <!-- Globe with lines only -->
     <div class="globe-wrapper">
       <svg class="globe" viewBox="0 0 500 500" aria-hidden="true">
-        <!-- Outer circle -->
         <circle cx="250" cy="250" r="230" fill="none" stroke="var(--globe-line)" stroke-width="3" />
-
-        <!-- Latitudes -->
         <ellipse cx="250" cy="250" rx="230" ry="80" fill="none" stroke="var(--globe-line)" stroke-width="1.5" />
         <ellipse cx="250" cy="250" rx="230" ry="150" fill="none" stroke="var(--globe-line)" stroke-width="1.2" />
-
-        <!-- Longitudes -->
         <ellipse cx="250" cy="250" rx="80" ry="230" fill="none" stroke="var(--globe-line)" stroke-width="1.5" />
         <ellipse cx="250" cy="250" rx="150" ry="230" fill="none" stroke="var(--globe-line)" stroke-width="1.2" />
       </svg>
+
+      <!-- Left-justified text over the globe -->
+      <div class="text-block">
+        <div class="term">Aspasian</div>
+        <div class="pronunciation">adjective | as-PAY-zee-ən</div>
+
+        <div class="definition">
+          Definition: Characterized by intellectual brilliance, rhetorical skill, and the ability to influence political and
+          philosophical discourse despite societal constraints; embodying qualities of eloquence, strategic thinking, and the
+          challenging of conventional gender roles in intellectual life; of or relating to Aspasia of Miletus.
+        </div>
+      </div>
     </div>
 
-    <!-- Text block -->
-    <div class="text-block">
-      <div class="term">Aspasian</div>
-      <div class="pronunciation">adjective | as-PAY-zee-ən</div>
-
-      <div class="definition">
-        Definition: Characterized by intellectual brilliance, rhetorical skill, and the ability to influence political and
-        philosophical discourse despite societal constraints; embodying qualities of eloquence, strategic thinking, and the
-        challenging of conventional gender roles in intellectual life; of or relating to Aspasia of Miletus.
-      </div>
-
-      <div class="contact">
-        Contact:
-        <a href="mailto:info@aspasian.ventures">info@aspasian.ventures</a>
-      </div>
+    <!-- Bottom contact line -->
+    <div class="contact">
+      Contact:
+      <a href="mailto:info@aspasian.ventures">info@aspasian.ventures</a>
     </div>
 
   </div>
