@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aspasian Ventures</title>
+
   <style>
     :root {
       --bg-blue-gray: #a9b9c9;
-      --globe-line: rgba(255, 255, 255, 0.45);   /* lighter globe lines */
+      --globe-line: rgba(255, 255, 255, 0.40);   /* lighter globe */
       --text-main: rgba(255, 255, 255, 0.99);    /* darker text */
-      --text-soft: rgba(255, 255, 255, 0.96);    /* darker body text */
+      --text-soft: rgba(255, 255, 255, 0.96);
     }
 
     * {
@@ -30,23 +31,18 @@
     }
 
     .layout {
-      position: relative;
       width: 100%;
       max-width: 1100px;
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      text-align: center;
     }
 
-    /* Larger centered title with tighter spacing above globe */
+    /* Larger title, tighter spacing */
     .title {
       text-transform: uppercase;
       letter-spacing: 0.20em;
-      font-size: 3.4rem;      /* larger title */
+      font-size: 3.6rem;
       font-weight: 650;
-      text-align: center;
-      margin-bottom: 20px;    /* reduced spacing */
+      margin-bottom: 10px;   /* reduced spacing */
       color: var(--text-main);
     }
 
@@ -55,30 +51,31 @@
       position: relative;
       width: 70%;
       max-width: 650px;
-      margin-bottom: 20px;    /* reduced spacing above contact */
+      margin: 0 auto;
+      margin-bottom: 10px;   /* reduced spacing */
     }
 
     .globe {
       width: 100%;
-      opacity: 0.35;          /* lighter appearance */
+      opacity: 0.35;
       display: block;
     }
 
-    /* Left-justified text placed over the globe */
+    /* Left-justified text over the globe */
     .text-block {
       position: absolute;
-      top: 50%;
+      top: 48%;
       left: 50%;
-      transform: translate(-50%, -60%);
-      width: 90%;
-      max-width: 700px;
+      transform: translate(-50%, -50%);
+      width: 95%;
+      max-width: 750px;
       text-align: left;
       color: var(--text-soft);
     }
 
     .term {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       font-weight: 600;
       margin-bottom: 0.4rem;
       color: var(--text-main);
@@ -86,26 +83,47 @@
 
     .pronunciation {
       font-style: italic;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       margin-bottom: 1.2rem;
     }
 
+    /* Larger definition text, wider block (3–4 lines) */
     .definition {
-      font-size: 1.25rem;      /* larger body text */
+      font-size: 1.35rem;
       line-height: 1.75;
-      margin-bottom: 2.5rem;
-      max-width: 60rem;        /* wider so it extends past globe edges */
+      max-width: 60rem;   /* ensures it extends past globe edges */
     }
 
-    /* Bottom contact line */
+    /* Contact line */
     .contact {
-      margin-top: 10px;
+      margin-top: 20px;
       font-size: 1rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--text-main);
-      text-align: center;
     }
 
     .contact a {
-      color
+      color: var(--text-main);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+      padding-bottom: 2px;
+    }
+
+    .contact a:hover {
+      border-bottom-color: var(--text-main);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+
+    <!-- Title -->
+    <div class="title">ASPASIAN VENTURES</div>
+
+    <!-- Globe -->
+    <div class="globe-wrapper">
+      <svg class="globe" viewBox="0 0 500 500" aria-hidden="true">
+        <circle cx="250" cy="250" r="230" fill="none" stroke="var(--globe-line)" stroke-width="3" />
+        <ellipse cx="250" cy="250" rx="230" ry="80" fill="none" stroke="var(--globe-line)" stroke-width="1.5" />
