@@ -7,146 +7,160 @@
   <style>
     :root {
       --bg-blue-gray: #a9b9c9;
-      --white: #ffffff;
-      --text-dark: #0f1a2b;
+      --globe-line: rgba(255, 255, 255, 0.75);
+      --text-dark: rgba(255, 255, 255, 0.92);
+      --heading-dark: rgba(255, 255, 255, 0.95);
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      min-height: 100vh;
       background: var(--bg-blue-gray);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 40px;
       color: var(--text-dark);
     }
 
-    .wrapper {
+    .layout {
       position: relative;
       width: 100%;
-      max-width: 900px;
-      aspect-ratio: 16 / 9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+      max-width: 1100px;
+      min-height: 80vh;
     }
 
+    /* Upper-right heading */
+    .heading {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--heading-dark);
+      font-weight: 500;
+    }
+
+    /* Detailed globe */
     .globe {
       position: absolute;
-      inset: 50%;
+      top: 50%;
+      left: 50%;
+      width: 70%;
+      max-width: 650px;
       transform: translate(-50%, -50%);
-      width: 90%;
-      max-width: 600px;
-      opacity: 0.35;
+      opacity: 0.45;
     }
 
+    /* Content block */
     .content {
       position: relative;
-      z-index: 1;
-      max-width: 720px;
-      text-align: left;
-      color: var(--white);
-    }
-
-    .brand {
-      font-family: "Copperplate", "Copperplate Gothic Light", "Times New Roman", serif;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
+      z-index: 2;
+      max-width: 650px;
+      margin-top: 120px;
+      padding-left: 20px;
     }
 
     .term {
-      font-family: "Georgia", "Times New Roman", serif;
-      font-size: 2.4rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.6rem;
       font-weight: 600;
       margin-bottom: 0.4rem;
+      color: var(--heading-dark);
     }
 
     .pronunciation {
       font-style: italic;
-      font-size: 1.05rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      margin-bottom: 1.4rem;
     }
 
     .definition {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       line-height: 1.7;
-      margin-bottom: 2rem;
-      max-width: 46rem;
+      margin-bottom: 2.2rem;
+      max-width: 48rem;
     }
 
     .contact {
-      font-size: 0.95rem;
+      font-size: 1rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
     .contact a {
-      color: var(--white);
+      color: var(--heading-dark);
       text-decoration: none;
       border-bottom: 1px solid rgba(255, 255, 255, 0.6);
       padding-bottom: 2px;
     }
 
     .contact a:hover {
-      border-bottom-color: var(--white);
+      border-bottom-color: var(--heading-dark);
     }
 
     @media (max-width: 768px) {
-      .wrapper {
-        padding: 16px;
+      .heading {
+        font-size: 1.2rem;
       }
       .term {
         font-size: 2rem;
       }
       .definition {
-        font-size: 0.98rem;
+        font-size: 1rem;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="wrapper">
-    <!-- White globe outline with Americas facing front (stylized SVG) -->
-    <svg class="globe" viewBox="0 0 400 400" aria-hidden="true">
-      <circle cx="200" cy="200" r="180" fill="none" stroke="#ffffff" stroke-width="3" />
-      <!-- Longitudes -->
-      <ellipse cx="200" cy="200" rx="60" ry="180" fill="none" stroke="#ffffff" stroke-width="1.5" />
-      <ellipse cx="200" cy="200" rx="120" ry="180" fill="none" stroke="#ffffff" stroke-width="1" />
+  <div class="layout">
+
+    <!-- Upper-right heading -->
+    <div class="heading">ASPASIAN VENTURES</div>
+
+    <!-- Detailed globe SVG -->
+    <svg class="globe" viewBox="0 0 500 500" aria-hidden="true">
+      <!-- Outer circle -->
+      <circle cx="250" cy="250" r="230" fill="none" stroke="var(--globe-line)" stroke-width="3" />
+
       <!-- Latitudes -->
-      <ellipse cx="200" cy="200" rx="180" ry="60" fill="none" stroke="#ffffff" stroke-width="1.5" />
-      <ellipse cx="200" cy="200" rx="180" ry="120" fill="none" stroke="#ffffff" stroke-width="1" />
-      <!-- Stylized Americas landmass -->
+      <ellipse cx="250" cy="250" rx="230" ry="80" fill="none" stroke="var(--globe-line)" stroke-width="1.5" />
+      <ellipse cx="250" cy="250" rx="230" ry="150" fill="none" stroke="var(--globe-line)" stroke-width="1.2" />
+
+      <!-- Longitudes -->
+      <ellipse cx="250" cy="250" rx="80" ry="230" fill="none" stroke="var(--globe-line)" stroke-width="1.5" />
+      <ellipse cx="250" cy="250" rx="150" ry="230" fill="none" stroke="var(--globe-line)" stroke-width="1.2" />
+
+      <!-- Detailed Americas outline -->
       <path
-        d="M190 90
-           C160 110, 150 140, 160 165
-           C170 190, 155 210, 150 230
-           C145 250, 155 270, 175 280
-           C195 290, 210 305, 215 320
-           C220 335, 235 340, 245 330
-           C255 320, 255 305, 250 295
-           C245 285, 240 270, 245 255
-           C250 240, 260 225, 265 210
-           C270 195, 270 180, 265 165
-           C260 150, 245 135, 230 120
-           C215 105, 205 95, 190 90 Z"
+        d="M260 110
+           C220 130, 200 160, 210 190
+           C220 220, 200 240, 190 260
+           C180 280, 190 300, 215 315
+           C240 330, 260 350, 270 370
+           C280 390, 300 395, 315 380
+           C330 365, 330 345, 320 330
+           C310 315, 300 295, 305 275
+           C310 255, 325 235, 335 215
+           C345 195, 345 175, 335 155
+           C325 135, 305 120, 285 110
+           C275 105, 270 105, 260 110 Z"
         fill="none"
-        stroke="#ffffff"
+        stroke="var(--globe-line)"
         stroke-width="2"
       />
     </svg>
 
+    <!-- Main content -->
     <div class="content">
-      <div class="brand">ASPASIAN VENTURES</div>
-
       <div class="term">Aspasian</div>
       <div class="pronunciation">adjective | as-PAY-zhən or as-PAY-zee-ən</div>
 
@@ -157,10 +171,4 @@
       </div>
 
       <div class="contact">
-        Contact:
-        <a href="mailto:info@aspasian.ventures">info@aspasian.ventures</a>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+        Contact
