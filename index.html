@@ -36,11 +36,11 @@
       text-align: center;
     }
 
-    /* Smaller title */
+    /* Title */
     .title {
       text-transform: uppercase;
       letter-spacing: 0.20em;
-      font-size: 2.2rem;      /* reduced */
+      font-size: 2.2rem;
       font-weight: 650;
       margin-bottom: 15px;
       color: var(--text-main);
@@ -61,14 +61,14 @@
       display: block;
     }
 
-    /* Left-justified text over the globe */
+    /* Left-justified text over the globe (desktop) */
     .text-block {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -58%);
       width: 100%;
-      max-width: 780px;   /* wider so definition becomes 4 lines */
+      max-width: 780px;
       text-align: left;
       color: var(--text-soft);
     }
@@ -87,11 +87,11 @@
       margin-bottom: 1.2rem;
     }
 
-    /* Slightly smaller definition text, widened to force 4 lines */
+    /* Definition: slightly smaller + wide enough for ~4 lines */
     .definition {
-      font-size: 1.18rem;      /* slightly smaller */
+      font-size: 1.18rem;
       line-height: 1.7;
-      max-width: 62rem;        /* wide enough to reduce line count */
+      max-width: 62rem;
     }
 
     /* Contact line */
@@ -113,6 +113,52 @@
 
     .contact a:hover {
       border-bottom-color: var(--text-main);
+    }
+
+    /* ---------------------------------------------------------
+       MOBILE LAYOUT (iPhone portrait, small screens)
+       --------------------------------------------------------- */
+    @media (max-width: 600px) {
+
+      .title {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+      }
+
+      .globe-wrapper {
+        width: 90%;
+        margin-bottom: 10px;
+      }
+
+      /* Move text BELOW the globe for readability */
+      .text-block {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 10px;
+        padding: 0 10px;
+        text-align: left;
+      }
+
+      .term {
+        font-size: 1.6rem;
+      }
+
+      .pronunciation {
+        font-size: 1rem;
+      }
+
+      .definition {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        max-width: 100%;
+      }
+
+      .contact {
+        margin-top: 20px;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -144,7 +190,7 @@
 
       </svg>
 
-      <!-- Text over globe -->
+      <!-- Text block -->
       <div class="text-block">
         <div class="term">Aspasian</div>
         <div class="pronunciation">adjective | as-PAY-zee-ən</div>
